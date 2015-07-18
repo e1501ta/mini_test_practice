@@ -1,0 +1,35 @@
+# coding: utf-8
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'mini_test_practice/version'
+
+Gem::Specification.new do |spec|
+  spec.name          = "mini_test_practice"
+  spec.version       = MiniTestPractice::VERSION
+  spec.authors       = ["e1501ta"]
+  spec.email         = ["e1501ta@aiit.ac.jp"]
+
+  spec.summary       = %q{Minitest practice project.}
+  spec.description   = %q{Minitest practice project.}
+  spec.homepage      = ""
+  spec.license       = "MIT"
+
+  # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
+  # delete this section to allow pushing this gem to any host.
+=begin
+  if spec.respond_to?(:metadata)
+    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
+  else
+    raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
+  end
+=end
+
+  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  spec.bindir        = "exe"
+  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.require_paths = ["lib"]
+
+  spec.add_development_dependency "bundler", "~> 1.10"
+  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "minitest"
+end
